@@ -1,21 +1,19 @@
 import PostForm from "../components/PostForm";
 import Tasks from "../components/Tasks";
 
-async function getPosts() {
-  const res = await fetch(`${process.env.BASE_URL}/api/getPosts`);
-  if (!res.ok) {
-  }
-  return res.json();
-}
-
 export default async function Home() {
+  async function getPosts() {
+    const res = await fetch(`${process.env.BASE_URL}/api/getPosts`);
+
+    return res.json();
+  }
+
   const data: {
     id: number;
     title: string;
     content: string;
     timestamp: string;
   }[] = await getPosts();
-  console.log(data);
 
   return (
     <div>
