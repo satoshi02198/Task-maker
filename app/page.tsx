@@ -1,5 +1,5 @@
-import PostForm from "./PostForm";
-import Tasks from "./Tasks";
+import PostForm from "../components/PostForm";
+import Tasks from "../components/Tasks";
 
 async function getPosts() {
   const res = await fetch(`${process.env.BASE_URL}/api/getPosts`);
