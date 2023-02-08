@@ -5,7 +5,6 @@ type postProps = {
   editTitle: string;
   editContent: string;
   id: number;
-  timestamp: Date;
 };
 
 export default async function handler(
@@ -24,7 +23,6 @@ export default async function handler(
           data: {
             title: post.editTitle,
             content: post.editContent,
-            timestamp: new Date(),
           },
         });
         res.status(200).json(result);

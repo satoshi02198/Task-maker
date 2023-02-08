@@ -14,7 +14,7 @@ export default async function Home() {
     id: number;
     title: string;
     content: string;
-    timestamp: Date;
+    timestamp: string;
   }[] = await getPosts();
   console.log(data);
 
