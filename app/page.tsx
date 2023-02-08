@@ -2,7 +2,7 @@ import PostForm from "./PostForm";
 import Tasks from "./Tasks";
 
 async function getPosts() {
-  const res = await fetch("http://localhost:3000/api/getPosts");
+  const res = await fetch("/api/getPosts");
   if (!res.ok) {
   }
   return res.json();
