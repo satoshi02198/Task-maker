@@ -6,9 +6,9 @@ import Tasks from "../components/Tasks";
 async function getPosts() {
   const res = await fetch(`${process.env.BASE_URL}/api/getPosts`);
   if (!res.ok) {
-    console.log(res);
+    console.log(res.json());
   }
-  return res.json();
+  return res.text();
 }
 
 export default async function Home() {
@@ -30,18 +30,16 @@ export default async function Home() {
   //   getPosts();
   // }, []);
 
-  const data: {
-    id: number;
-    title: string;
-    content: string;
-    timestamp: string;
-  }[] = await getPosts();
+  const data = await getPosts();
+
+  const jsonData = JSON.parse(data);
+  console.log(jsonData);
 
   return (
     <div>
       <PostForm />
       <div className="sm:flex  sm:justify-center sm:items-baseline sm:flex-wrap max-w-7xl mx-auto mt-7">
-        {data.reverse().map((post) => (
+        {jsonData.reverse().map((post) => (
           <Tasks
             title={post.title}
             content={post.content}
