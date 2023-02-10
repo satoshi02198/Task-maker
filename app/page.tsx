@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <>
       <PostForm />
+      {/* @ts-expect-error Server Component */}
       <ShowTasks />
     </>
   );
