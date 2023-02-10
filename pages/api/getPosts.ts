@@ -1,16 +1,18 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import prisma from "@/prisma/client";
+import { getPosts } from "@/lib/prisma/posts";
 
-export default async function handler(
+const handler = async (
   req: NextApiRequest,
 
   res: NextApiResponse
-) {
-  try {
-    const data = await prisma.post.findMany();
-
-    return res.status(200).json(data);
-  } catch (error) {
-    return res.status(500).json(error);
+) => {
+  if (req.method === "GET") {
+    try {
+      const { posts } = await getPosts();
+      return res.status(200).json({ posts });
+    } catch (error) {
+      return res.status(500).json(error);
+    }
   }
-}
+};
+export default handler;

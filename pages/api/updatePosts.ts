@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import prisma from "../../prisma/client";
+import prisma from "@/lib/prisma";
 
 type postProps = {
   editTitle: string;
