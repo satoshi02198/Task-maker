@@ -31,6 +31,7 @@ export default async function Home() {
                 content={post.content}
                 id={post.id}
                 timestamp={post.timestamp}
+                key={post.id}
               />
             )
           )}{" "}
